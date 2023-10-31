@@ -1,0 +1,46 @@
+﻿@using Web.ViewModels.Shop;
+@model ShopIndexVM;
+
+
+@{
+    foreach (var product in Model.Products)
+    {
+        <div class="col-lg-4 col-md-6 pb-5">
+            <div class="productt" id="@product.Id">
+                <div class="product-image"
+                 style="background-image: url(assets/images/@product.Photoname);">
+                    <div class="basket-wishlist-compare d-flex justify-content-center">
+                        <div class="add-basket text-center">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-inf">
+                    <h5 class="productt-name">@product.Title</h5>
+                    <p><span>$</span><span class="price">@product.Price</span></p>
+                </div>
+            </div>
+        </div>
+    }
+}
+@*<div class="pagination d-flex justify-content-center">
+    @{
+        var prevPage = Model.Page - 1;
+        if (1 < Model.Page)
+        {
+            <a asp-action="index" asp-controller="shop" asp-route-page="@prevPage" class="pagination-element"><i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+        }
+
+        for (var i = 1; i <= Model.PageCount; i++)
+        {
+            <a asp-action="index" asp-controller="shop" asp-route-page="@i" class="@(Model.Page==i?"pagination-element pagination-active":"pagination-element ")">@i</a>
+        }
+
+        var nextPage = Model.Page + 1;
+        if (Model.PageCount != Model.Page)
+        {
+            <a asp-action="index" asp-controller="shop" asp-route-page="@nextPage" class="pagination-element"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+        }
+    }
+</div>
+*@
